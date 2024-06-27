@@ -30,8 +30,32 @@ def main(page: ft.page):
         text = ''
         for value in values:
            text += f'{value}'
-        output.controls[0].content = ft.Text(eval(text), selectable=True)
-        page.update()
+        try:
+            output.controls[0].content = ft.Text(eval(text), selectable=True)
+            page.update()
+
+        except:
+            bs.open = True
+            bs.update()
+
+    def close_bs(e):
+        bs.open = False
+        bs.update()
+
+    bs = ft.BottomSheet(
+        ft.Container(
+            ft.Column(
+                [
+                    ft.Text("       No solutions!"),
+                    ft.ElevatedButton("        Okay        ", on_click=close_bs),
+                ],
+                tight=True, alignment=ft.alignment.center
+            ),
+            padding=50,
+        ),
+        open=False,
+    )
+    page.overlay.append(bs),
 
     for i in range(1,4):
         btn = ft.ElevatedButton(text=f'{i}', width=page.window_width / 5, height=page.window_height / 13,
