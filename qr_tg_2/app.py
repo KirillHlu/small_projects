@@ -11,8 +11,6 @@ def image_to_link(image_path):
         image_link = "data:image/jpg;base64," + encoded_image
     return image_link
 
-btn_send_exist = []
-
 def main(page: ft.Page):
     page.scroll = True
     page.theme = ft.Theme(
@@ -32,7 +30,7 @@ def main(page: ft.Page):
         for user in data:
             if user.get('name') == name:
                 if password == user.get('password'):
-                    TOKEN = 'TOKEN'
+                    TOKEN = '6973764093:AAFxaC4ynqW3YV0tNqUydnaT9mEg3RWZnMQ'
                     qr = qrcode.QRCode(
                         version=1,
                         box_size=10,
@@ -53,12 +51,15 @@ def main(page: ft.Page):
                     chat_id = user.get('chat_id')
                     photo_url = buffer
 
-                    bot.send_photo(chat_id, photo_url)
+                    bot.send_photo(chat_id, photo_url, caption=f"Text: '{row1.controls[0].value}'")
 
         bs.open = False
         bs.update()
+        page.update()
+
 
     def save(e):
+        generate(e)
         bs.open = True
         bs.update()
 
@@ -84,11 +85,7 @@ def main(page: ft.Page):
         buffer.seek(0)
         img_base64 = base64.b64encode(buffer.getvalue()).decode('utf-8')
         qr_image.controls[0].image_src = f'data:image/png;base64,{img_base64}'
-
-        if len(btn_send_exist) == 0:
-            btn_save = ft.ElevatedButton(text='Save', on_click=save)
-            btn_send_exist.append('Yes')
-            page.add(btn_save)
+        qr_image.controls[0].content = ft.Text('')
 
         page.update()
 
@@ -175,14 +172,16 @@ def main(page: ft.Page):
                 alignment=ft.alignment.center,
                 width=350,
                 height=350,
-                border_radius=10,
                 image_src=f'',
+                content=ft.Text('Your image will be here', color=ft.colors.BLUE_ACCENT_100)
             ),
         ],
         alignment=ft.MainAxisAlignment.CENTER,
     )
 
-    page.add(row1, row2, row3, qr_image)
+    btn_save = ft.ElevatedButton(text='Save', on_click=save)
+
+    page.add(row1, row2, row3, qr_image, btn_save)
 
 
 if __name__ == "__main__":
