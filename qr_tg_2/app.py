@@ -30,7 +30,7 @@ def main(page: ft.Page):
         for user in data:
             if user.get('name') == name:
                 if password == user.get('password'):
-                    TOKEN = '6973764093:AAFxaC4ynqW3YV0tNqUydnaT9mEg3RWZnMQ'
+                    TOKEN = ''
                     qr = qrcode.QRCode(
                         version=1,
                         box_size=10,
