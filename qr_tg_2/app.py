@@ -5,6 +5,9 @@ import base64
 import json
 import telebot
 
+TOKEN = input('Токен: ')
+PORT = input('Порт: ')
+
 def image_to_link(image_path):
     with open(image_path, "rb") as img_file:
         encoded_image = base64.b64encode(img_file.read()).decode("utf-8")
@@ -30,7 +33,6 @@ def main(page: ft.Page):
         for user in data:
             if user.get('name') == name:
                 if password == user.get('password'):
-                    TOKEN = ''
                     qr = qrcode.QRCode(
                         version=1,
                         box_size=10,
@@ -51,7 +53,7 @@ def main(page: ft.Page):
                     chat_id = user.get('chat_id')
                     photo_url = buffer
 
-                    bot.send_photo(chat_id, photo_url, caption=f"Text: '{row1.controls[0].value}'")
+                    bot.send_photo(chat_id, photo_url, caption=f"Текст: '{row1.controls[0].value}'")
 
         bs.open = False
         bs.update()
@@ -89,8 +91,8 @@ def main(page: ft.Page):
 
         page.update()
 
-    input_name = ft.TextField(label='Name')
-    input_password = ft.TextField(label='Password')
+    input_name = ft.TextField(label='Имя')
+    input_password = ft.TextField(label='Пароль')
 
     bs = ft.BottomSheet(
         ft.Container(
@@ -98,7 +100,7 @@ def main(page: ft.Page):
                 [
                     input_name,
                     input_password,
-                    ft.ElevatedButton("Send", on_click=close_bs),
+                    ft.ElevatedButton("Отправить", on_click=close_bs),
                 ],
                 tight=True, alignment=ft.MainAxisAlignment.CENTER
             ),
@@ -110,8 +112,8 @@ def main(page: ft.Page):
 
     row1 = ft.Row(
         controls=[
-            ft.TextField(label='Text', expand=True, width=300),
-            ft.ElevatedButton(text='Generate', on_click=generate)
+            ft.TextField(label='Текст', expand=True, width=300),
+            ft.ElevatedButton(text='Создать', on_click=generate)
         ], alignment=ft.MainAxisAlignment.CENTER
     )
 
@@ -120,7 +122,7 @@ def main(page: ft.Page):
             ft.Dropdown(
                 width=100,
                 expand=True,
-                label='Background',
+                label='Фон',
                 options=[
                     ft.dropdown.Option("Red"),
                     ft.dropdown.Option("Green"),
@@ -143,7 +145,7 @@ def main(page: ft.Page):
             ft.Dropdown(
                 width=100,
                 expand=True,
-                label='Shapes',
+                label='Фигуры',
                 options=[
                     ft.dropdown.Option("Red"),
                     ft.dropdown.Option("Green"),
@@ -173,16 +175,16 @@ def main(page: ft.Page):
                 width=350,
                 height=350,
                 image_src=f'',
-                content=ft.Text('Your image will be here', color=ft.colors.BLUE_ACCENT_100)
+                content=ft.Text('Ваше изображение будет здесь', color=ft.colors.BLUE_ACCENT_100)
             ),
         ],
         alignment=ft.MainAxisAlignment.CENTER,
     )
 
-    btn_save = ft.ElevatedButton(text='Save', on_click=save)
+    btn_save = ft.ElevatedButton(text='Сохранить', on_click=save)
 
     page.add(row1, row2, row3, qr_image, btn_save)
 
 
 if __name__ == "__main__":
-    ft.app(target=main, view=None, port=80)
+    ft.app(target=main, view=None, port=PORT)
