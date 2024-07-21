@@ -6,6 +6,7 @@ import flet.map as ft_map
 def main(page: ft.Page):
     marker_layer_ref = ft.Ref[ft_map.MarkerLayer]()
 
+
     def update_map():
         coordinates = []
         with open('markers.txt', 'r') as file:
@@ -31,10 +32,48 @@ def main(page: ft.Page):
             )
         page.update()
 
+    def show_messages():
+        with open('messages.txt', 'r') as file:
+            messages = file.readlines()
+
+        for message in messages:
+            if message.strip():
+                text = ft.Container(
+                    content=ft.Text(message.strip(), color=ft.colors.WHITE),
+                    bgcolor=ft.colors.RED_600,
+                    border_radius=10,
+                    alignment=ft.alignment.center,
+                    width=180,
+                    height=80
+                )
+                page.overlay.append(
+                    ft.Container(
+                        content=text,
+                        alignment=ft.alignment.center,
+                        bottom=10,
+                        left=0,
+                        right=0,
+                        padding=ft.padding.all(10),
+                    )
+                )
+                page.update()  # Обновляем страницу безопасно
+                time.sleep(5)
+                page.overlay.clear()
+                page.overlay.clear()
+                page.update()  # Обновляем страницу для удаления сообщения
+
+        with open('messages.txt', 'w') as file:
+            file.write('')
+
     def periodic_load():
         while True:
             update_map()
-            time.sleep(20)
+            time.sleep(10)
+
+    def load_messages_periodically():
+        while True:
+            show_messages()
+            time.sleep(10)  # Задержка между загрузками сообщений
 
     page.add(
         ft_map.Map(
@@ -42,6 +81,7 @@ def main(page: ft.Page):
             configuration=ft_map.MapConfiguration(
                 initial_center=ft_map.MapLatitudeLongitude(15, 10),
                 initial_zoom=4.2,
+                min_zoom=2.0,
                 interaction_configuration=ft_map.MapInteractionConfiguration(
                     flags=ft_map.MapInteractiveFlag.ALL
                 ),
@@ -74,5 +114,6 @@ def main(page: ft.Page):
     )
 
     threading.Thread(target=periodic_load).start()
+    threading.Thread(target=load_messages_periodically).start()
 
-ft.app(target=main, port=PORT, view=None)
+ft.app(target=main, port=159, view=None)
