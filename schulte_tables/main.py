@@ -20,8 +20,8 @@ def main(page: ft.Page):
                         cnt = 1
                         row.controls.append(
                             ft.Container(
-                                content=ft.Text(f"{num}", color=ft.colors.BLACK54),
-                                bgcolor=ft.colors.WHITE70,
+                                content=ft.Text(f"{num}", color=ft.colors.BLACK, weight=ft.FontWeight.W_900, theme_style=ft.TextThemeStyle.TITLE_MEDIUM, size=21),
+                                bgcolor=ft.colors.WHITE,
                                 border_radius=0.1,
                                 width=50,
                                 height=50,
