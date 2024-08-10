@@ -1,6 +1,6 @@
 import cv2
 
-cap = cv2.VideoCapture("C:/Users/kkhlu/OneDrive/Рабочий стол/Venice_5.mp4")
+cap = cv2.VideoCapture("PATH")
 # cap.set(3, 500)
 # cap.set(4, 300)
 
