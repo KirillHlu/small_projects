@@ -1,0 +1,180 @@
+body {
+    display: flex;
+    flex-direction: row; /* Изменяем на строку */
+    min-height: 100vh;
+    margin: 0;
+    background-color: #333C36;
+}
+
+aside {
+    display: flex; /* Используем flex для элементов внутри aside */
+    flex-direction: column; /* Элементы в колонку */
+    justify-content: space-around; /* Равномерно распределяем элементы */
+    width: 20vw; /* Сохраните процентное значение для адаптивности */
+    border-right: 5px solid #404040;
+    height: 100vh; /* Высота aside установлена на 100% высоты экрана */
+    position: sticky; /* Делаем его "прилипшим" при прокрутке */
+    top: 0; /* Привязка к верхней части окна */
+    text-align: center;
+}
+
+.main-content {
+    flex-direction: column; /* Элементы располагаются в колонку */
+    justify-content: center; /* Центрирование по вертикали */
+    flex-grow: 1; /* Занимаем оставшееся пространство */
+    padding: 20px; /* Отступы для лучшего внешнего вида */
+    display: flex; /* Включаем флексбокс */
+    align-items: center; /* Центрируем элементы по горизонтали */
+}
+
+.title {
+    font: small-caps bold 24px/1 sans-serif;
+    text-align: center;
+    color: white;
+    margin: 25px 0; /* Небольшие отступы между абзацами */
+    font-weight: bold; /* Жирный шрифт для заголовка */
+    font-size: 3em; /* Увеличенный размер шрифта для заголовка */
+}
+
+.main-content {
+    display: flex; /* Включаем флексбокс */
+    flex-direction: column; /* Располагаем элементы по вертикали */
+    align-items: center; /* Центрируем элементы по горизонтали */
+}
+
+.messages {
+    background-color: #4CCD77; /* Цвет фона для сообщений */
+    color: white;
+    border: 1px solid #ccc; /* Светло-серая рамка */
+    border-radius: 8px; /* Скругленные углы */
+    padding: 15px; /* Отступы внутри блока сообщения */
+    margin-bottom: 2vw; /* Отступ между сообщениями */
+    box-shadow: 2px 2px 10px #4ccd77; /* Небольшая тень для глубины */
+    transition: transform 0.2s; /* Плавный переход при наведении */
+    width: 80%; /* Можно задать фиксированную ширину или процент */
+    max-width: 80vw; /* Максимальная ширина, чтобы сообщения не были слишком широкими */
+}
+
+.messages:hover {
+    transform: translateY(-5px); /* Легкий подъем при наведении */
+}
+
+.messages h1 {
+    text-align: center; /* Центрирование текста заголовка */
+    margin: 4px 0; /* Небольшие отступы между абзацами */
+    font-weight: bold; /* Жирный шрифт для заголовка */
+    font: small-caps bold 2.8em/1 sans-serif;
+}
+
+.messages h2 {
+    margin: 3px 0; /* Небольшие отступы между абзацами */
+    font-weight: bold; /* Жирный шрифт для заголовка */
+    font: small-caps bold 2.8em/1 sans-serif;
+}
+
+.messages h3 {
+    margin: 2.2px 0; /* Небольшие отступы между абзацами */
+    font-weight: bold; /* Жирный шрифт для заголовка */
+    font: small-caps bold 3em/1 sans-serif;
+}
+
+.messages h4 {
+    font: small-caps bold 1.3em/1 sans-serif;
+    color: #fff; /* Белый цвет для даты */
+    margin: 5px 0; /* Отступ между датой и предыдущим элементом */
+}
+
+
+
+p {
+    font-size: 2em; /* Устанавливаем размер шрифта */
+    color: white; /* Цвет текста */
+    background-color: #4CCD77; /* Фоновый цвет */
+    border-radius: 10px; /* Скругление углов */
+    width: 70vw; /* Фиксированная ширина для заголовка */
+    height: 200px; /* Высота элемента */
+    display: flex; /* Используем flex для центрирования текста */
+    align-items: center; /* Центрирование по вертикали */
+    justify-content: center; /* Центрирование по горизонтали */
+    margin: 30px auto; /* Отступ сверху и снизу и автоматические отступы по бокам для центрирования */
+    text-align: center; /* Центрирование текста внутри */
+    filter: drop-shadow(1px 1px 10px #4CCD77);
+    transition: transform 0.3s ease, filter 0.3s ease; /* Плавный переход для эффекта */
+}
+
+
+
+a {
+    font-size: 2vw; /* Размер шрифта зависит от ширины окна браузера */
+    background-color: #4CCD77;
+    color: white;
+    width: 15vw; /* Ширина 80% от ширины окна браузера */
+    max-width: 300px; /* Максимальная ширина для ссылок */
+    height: 10vh; /* Высота, равная 15% от высоты окна браузера */
+    border-radius: 10px;
+    display: flex; /* Используем flex для центрирования текста */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    filter: drop-shadow(1px 1px 10px #4CCD77);
+    transition: transform 0.3s ease, filter 0.3s ease; /* Плавный переход для эффекта */
+    margin: 2vw 0; /* Уменьшаем отступы сверху и снизу, чтобы линия не отставала */
+    text-decoration: none;
+    margin-left: -0.5vw;
+}
+
+.box {
+    position: sticky;
+    top: 25px;
+    background-color: #4CCD77;
+    color: white;
+    font-size: 2em;
+    width: 100%; /* Установить ширину в 100% */
+    max-width: 500px; /* Максимальная ширина для бокса */
+    height: auto; /* Высота может быть автоматической */
+    border-radius: 10px;
+    display: flex; /* Используем flex для центрирования текста */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    filter: drop-shadow(1px 1px 10px #4CCD77);
+    transition: transform 0.3s ease, filter 0.3s ease; /* Плавный переход для эффекта */
+    margin: 30px 0; /* Отступ сверху и снизу, чтобы разделить заголовки */
+    z-index: 1;
+}
+
+a:hover {
+    transform: scale(1.1); /* Увеличиваем размер на 10% при наведении */
+    filter: drop-shadow(3px 3px 30px #4CCD77); /* Увеличиваем тень для эффекта */
+}
+
+p:hover {
+    transform: scale(1.05); /* Увеличиваем размер на 10% при наведении */
+    filter: drop-shadow(3px 3px 15px #4CCD77); /* Увеличиваем тень для эффекта */
+}
+
+.box:hover {
+    transform: scale(1.03); /* Увеличиваем размер на 10% при наведении */
+    filter: drop-shadow(3px 3px 15px #4CCD77); /* Увеличиваем тень для эффекта */
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 20px;
+    }
+
+    h1 {
+        width: 100%;
+        height: auto;
+        font-size: 1.5em; /* Уменьшаем размер шрифта */
+        padding: 20px;
+        filter: drop-shadow(0px 0px 10px #4CCD77);
+        transition: transform 0.3s ease, filter 0.3s ease;
+        margin: 20px 0; /* Отступ для мобильной версии */
+    }
+
+    h1:hover {
+        transform: scale(1.1);
+        filter: drop-shadow(1px 1px 15px #4CCD77);
+    }
+}
