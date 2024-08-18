@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'main/css/styles.css' %}" />
+  </head>
+  <body>
+  <aside>
+      <ul>
+            <a href="/about">About</a>
+            <a href="">Main</a>
+            <a href="/about">Test1</a>
+    </ul>
+  </aside>
+  <div class="main-content">
+        <h2 class="title">News</h2>
+        {% for el in news %}
+      <div class="messages">
+         <h1>{{ el.title }}</h1>
+         <h3>{{ el.full_text }}</h3>
+         <h4>{{ el.date }}</h4>
+      </div>
+        {% endfor %}
+    </div>
+  </body>
+</html>
