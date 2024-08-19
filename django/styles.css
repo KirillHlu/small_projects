@@ -120,7 +120,7 @@ p {
     font-size: 2vw; /* Размер шрифта зависит от ширины окна браузера */
     background-color: #4CCD77;
     color: white;
-    width: 15vw; /* Ширина 80% от ширины окна браузера */
+    width: 13vw; /* Ширина 80% от ширины окна браузера */
     max-width: 300px; /* Максимальная ширина для ссылок */
     height: 10vh; /* Высота, равная 15% от высоты окна браузера */
     border-radius: 10px;
@@ -132,7 +132,7 @@ p {
     transition: transform 0.3s ease, filter 0.3s ease; /* Плавный переход для эффекта */
     margin: 2vw 0; /* Уменьшаем отступы сверху и снизу, чтобы линия не отставала */
     text-decoration: none;
-    margin-left: -0.5vw;
+    margin-left: 1vw;
 }
 
 .box {
