@@ -9,9 +9,9 @@
   <body>
   <aside>
       <ul>
-            <a href="/about">About</a>
-            <a href="">Main</a>
-            <a href="/about">Test1</a>
+            <a href="/about" class="a1">About</a>
+            <a href="{% url 'news-home' %}" class="a1">Main</a>
+            <a href="/create" class="a1">Create</a>
     </ul>
   </aside>
   <div class="main-content">
@@ -19,7 +19,8 @@
         {% for el in news %}
       <div class="messages">
          <h1>{{ el.title }}</h1>
-         <h3>{{ el.full_text }}</h3>
+         <h3>{{ el.anons }}</h3>
+          <a class="a2" href="{% url 'news-detail' el.id%}">Read more</a>
          <h4>{{ el.date }}</h4>
       </div>
         {% endfor %}
