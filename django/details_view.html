@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'main/css/styles.css' %}" />
+  </head>
+  <body>
+  <aside>
+      <ul>
+            <a href="/about" class="a1">About</a>
+            <a href="{% url 'news-home' %}" class="a1">Main</a>
+            <a href="/create" class="a1">Create</a>
+    </ul>
+  </aside>
+  <div class="main-content">
+        <h2 class="title">News</h2>
+      <div class="messages">
+         <h1>{{ article.title }}</h1>
+         <h3>{{ article.full_text }}</h3>
+         <h4>{{ article.date }}</h4>
+      </div>
+    </div>
+  </body>
+</html>
