@@ -59,6 +59,10 @@ aside {
     transform: translateY(-5px); /* Легкий подъем при наведении */
 }
 
+.a2:hover {
+    transform: translateY(-5px); /* Легкий подъем при наведении */
+}
+
 .messages h1 {
     text-align: center; /* Центрирование текста заголовка */
     margin: 4px 0; /* Небольшие отступы между абзацами */
@@ -78,8 +82,16 @@ aside {
     font: small-caps bold 3em/1 sans-serif;
 }
 
+.a2 {
+    text-decoration: none;
+    color: white;
+    margin: 2.2px 0; /* Небольшие отступы между абзацами */
+    font-weight: bold; /* Жирный шрифт для заголовка */
+    font: small-caps bold 1.2em/1 sans-serif;
+}
+
 .messages h4 {
-    font: small-caps bold 1.3em/1 sans-serif;
+    font: small-caps bold 1em/1 sans-serif;
     color: #fff; /* Белый цвет для даты */
     margin: 5px 0; /* Отступ между датой и предыдущим элементом */
 }
@@ -104,7 +116,7 @@ p {
 
 
 
-a {
+.a1 {
     font-size: 2vw; /* Размер шрифта зависит от ширины окна браузера */
     background-color: #4CCD77;
     color: white;
@@ -143,7 +155,7 @@ a {
     z-index: 1;
 }
 
-a:hover {
+.a1:hover {
     transform: scale(1.1); /* Увеличиваем размер на 10% при наведении */
     filter: drop-shadow(3px 3px 30px #4CCD77); /* Увеличиваем тень для эффекта */
 }
