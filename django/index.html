@@ -15,7 +15,7 @@
     </ul>
   </aside>
   <div class="main-content">
-        <h2 class="title">News</h2>
+      <div class="input1"><input type="text" id="searchInput" placeholder="Search" /></div>
         {% for el in news %}
       <div class="messages">
          <h1>{{ el.title }}</h1>
@@ -23,6 +23,7 @@
           <a class="a2" href="{% url 'news-detail' el.id%}">Read more</a>
          <h4>{{ el.date }}</h4>
       </div>
+      <script src="{% static 'main/js/first.js' %}" defer></script>
         {% endfor %}
     </div>
   </body>
