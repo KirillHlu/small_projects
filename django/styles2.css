@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    display: flex;
+    flex-directions: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #333C36;
+}
+
+button {
+    font-size: 2vw; /* Размер шрифта зависит от ширины окна браузера */
+    background-color: #4CCD77;
+    color: white;
+    width: 13vw; /* Ширина 80% от ширины окна браузера */
+    max-width: 300px; /* Максимальная ширина для ссылок */
+    height: 10vh; /* Высота, равная 15% от высоты окна браузера */
+    border-radius: 10px;
+    display: flex; /* Используем flex для центрирования текста */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    filter: drop-shadow(1px 1px 10px #4CCD77);
+    transition: transform 0.3s ease, filter 0.3s ease; /* Плавный переход для эффекта */
+    margin: 2vw 0; /* Уменьшаем отступы сверху и снизу, чтобы линия не отставала */
+    text-decoration: none;
+    margin-left: 1vw;
+    border: none;
+}
+
+button:hover{
+    transform: scale(1.1); /* Увеличиваем размер на 10% при наведении */
+    filter: drop-shadow(3px 3px 30px #4CCD77); /* Увеличиваем тень для эффекта */
+}
+
+label {
+    font: small-caps bold 24px/1 sans-serif;
+    text-align: center;
+    color: white;
+    margin: 25px 0; /* Небольшие отступы между абзацами */
+    font-weight: bold; /* Жирный шрифт для заголовка */
+    font-size: 3em;
+    padding-right: 2vw;
+}
+
+p {
+    font: small-caps bold 24px/1 sans-serif;
+    text-align: center;
+    color: white;
+    margin: 25px 0; /* Небольшие отступы между абзацами */
+    font-weight: bold; /* Жирный шрифт для заголовка */
+    font-size: 1em;
+    padding-right: 2vw;
+}
+
+input, textarea {
+    width: 35vw;
+    padding: 12px 15px;
+    border: #2e2e2e;
+    border-radius: 24px; /* Закругленные углы */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Легкая тень */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Плавный переход */
+    font-size: 16px; /* Размер шрифта */
+    background-color: #2e2e2e;
+    margin: 40px 0;
+    color: white;
+}
+
+input:focus {
+    box-shadow: 0 0 8px rgba(76, 205, 119, 1); /* Тень при фокусе */
+    outline: none;
+}
+
+textarea:focus {
+    box-shadow: 0 0 8px rgba(76, 205, 119, 1); /* Тень при фокусе */
+    outline: none;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+}
