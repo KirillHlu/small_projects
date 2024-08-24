@@ -16,7 +16,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://42d0-176-196-55-38.ngrok-free.app',  # ваш текущий адрес
+    'https://edaa-176-196-55-38.ngrok-free.app',  # ваш текущий адрес
 ]
 
 # Quick-start development settings - unsuitable for production
@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-4!_ntvg9r6*oe)f&=z7hlquq$vvdp-_r(*+-m83w(4m$^v&@9d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '42d0-176-196-55-38.ngrok-free.app']
+ALLOWED_HOSTS = ['127.0.0.1', 'edaa-176-196-55-38.ngrok-free.app', 'https://5cf0-176-196-55-38.ngrok-free.app']
 
 
 # Application definition
