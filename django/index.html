@@ -9,9 +9,9 @@
   <body>
   <aside>
       <ul>
-            <a href="/about" class="a1">About</a>
+            <a href="{% url 'login' %}" class="a1">Log in</a>
             <a href="{% url 'news-home' %}" class="a1">Main</a>
-            <a href="/create" class="a1">Create</a>
+            <a href="{% url 'create_article' %}" class="a1">Create</a>
     </ul>
   </aside>
   <div class="main-content">
@@ -22,6 +22,7 @@
          <h3>{{ el.anons }}</h3>
           <a class="a2" href="{% url 'news-detail' el.id%}">Read more</a>
          <h4>{{ el.date }}</h4>
+
       </div>
       <script src="{% static 'main/js/first.js' %}" defer></script>
         {% endfor %}
