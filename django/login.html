@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Log in</title>
+    <link rel="stylesheet" href="{% static 'main/css/styles2.css' %}" />
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Log in</button>
+    </form>
+    {% if next %}
+        <input type="hidden" name="next" value="{{ next }}">
+    {% endif %}
+    {% if user.is_authenticated %}
+        <p>Your account now: {{ user.username }}</p>
+    {% endif %}
+</body>
+</html>
